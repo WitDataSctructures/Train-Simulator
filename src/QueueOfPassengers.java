@@ -1,4 +1,4 @@
 
-public class QueueOfPassengers {
-
+public class QueueOfPassengers extends Queue {
+	
 }
