@@ -2,18 +2,17 @@
 public class TrainRoute {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		new TrainRoute();
 	}
 
 	public TrainRoute() {
 
 	}
 
-	public enum Station {
+	public static enum Station {
 		StationA, StationB, StationC, StationD, StationE, StationF;
 
-		public int getDistanceToNext(Station s) {
+		public static int getDistanceToNext(Station s) {
 			int distance = 0;
 			switch (s) {
 				case StationA:
@@ -40,6 +39,10 @@ public class TrainRoute {
 
 			}
 			return distance;
+		}
+
+		public static Station getNextStationFrom(Station s) {
+			return StationA;
 		}
 	};
 
