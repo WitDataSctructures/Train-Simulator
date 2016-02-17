@@ -3,47 +3,56 @@ public class TrainRoute {
 
 	public static void main(String[] args) {
 		new TrainRoute();
+		System.out.println(Station.StationF.getNextStation());
 	}
 
 	public TrainRoute() {
+		// Update loop
+		while (true) {
+			// Update stations
+			for (Station station : Station.values()) {
+				station.getStation().update();
+			}
 
+			// Update train
+
+		}
 	}
 
-	public static enum Station {
-		StationA, StationB, StationC, StationD, StationE, StationF;
+	public enum Station {
+		StationA(0, 1), StationB(1, 2), StationC(2, 3), StationD(3, 4), StationE(4, 3), StationF(5, 2);
 
-		public static int getDistanceToNext(Station s) {
-			int distance = 0;
-			switch (s) {
-				case StationA:
-					distance = 1;
-					break;
-				case StationB:
-					distance = 2;
-					break;
-				case StationC:
-					distance = 3;
-					break;
-				case StationD:
-					distance = 4;
-					break;
-				case StationE:
-					distance = 3;
-					break;
-				case StationF:
-					distance = 2;
-					break;
-				default:
-					System.out.println("Station not added to getDistanceToNext method");
-					break;
+		private final static Station headStation = StationA;
 
-			}
+		private final int value;
+		private final int distance;
+		private final TrainStation station;
+
+		private Station(int v, int distanceToNext) {
+			value = v;
+			distance = distanceToNext;
+			station = new TrainStation(this.name());
+		}
+
+		public int getValue() {
+			return value;
+		}
+
+		public int getDistanceToNext() {
 			return distance;
 		}
 
-		public static Station getNextStationFrom(Station s) {
-			return StationA;
+		public TrainStation getStation() {
+			return station;
+		}
+
+		public Station getNextStation() {
+			for (Station s : Station.values()) {
+				if (s.value == value + 1) {
+					return s;
+				}
+			}
+			return headStation;
 		}
 	};
-
 }
