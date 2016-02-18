@@ -10,6 +10,7 @@ public class Train {
 	private int distanceToStation;
 	private ArrayList<Passenger> passengers = new ArrayList<Passenger>(); 
 	private Direction directionOfTravel;
+	private TrainRoute.Station currentStation;
 	private TrainRoute.Station nextStation;
 	
 	public Train(Direction dir, int numOfCars){
@@ -26,7 +27,17 @@ public class Train {
 	}
 	
 	public void update(){
-		
+		if (distanceToStation == 0){
+			if (directionOfTravel == Direction.INBOUND){
+				nextStation = currentStation.getNextStation();
+				distanceToStation = currentStation.getDistanceToNext();
+			}else{
+				nextStation = currentStation.getPreviousStation();
+				distanceToStation = currentStation.getDistanceToPrevious();
+			}
+		} else {
+			distanceToStation--;
+		}
 	}
 	
 	public Direction getDirection(){
