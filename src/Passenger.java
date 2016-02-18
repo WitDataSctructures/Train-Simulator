@@ -1,21 +1,17 @@
 
 public class Passenger {
-	public static enum Direction{
-		INBOUND, OUTBOUND
-	}
+	private Train.Direction passengerDirection;
+	private TrainRoute.Station destination;
 	
-	private Direction passengerDirection;
-	private Station destination;
-	
-	public Passenger(Station dest, Direction dir){
+	public Passenger(TrainRoute.Station dest, Train.Direction dir){
 		destination = dest;
 		passengerDirection = dir;
 	}
 	
-	public Direction getDirection(){
+	public Train.Direction getDirection(){
 		return passengerDirection;
 	}
-	public Station getDestination(){
+	public TrainRoute.Station getDestination(){
 		return destination;
 	}
 }
