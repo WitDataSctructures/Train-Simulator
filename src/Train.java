@@ -33,6 +33,9 @@ public class Train {
 	}
 
 	public void update() {
+		System.out.println("Train: " + directionOfTravel + "	Capacity=" + capacity);
+		System.out.println("	Number of passengers: " + passengers.size());
+		System.out.println("	Distance to " + nextStation + "=" + distanceToStation);
 		// If not at station keep moving
 		if (distanceToStation > 0) {
 			distanceToStation--;

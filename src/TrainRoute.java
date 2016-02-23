@@ -1,27 +1,34 @@
+import java.util.ArrayList;
 
 public class TrainRoute {
 
 	public static void main(String[] args) {
-		new TrainRoute();
-		// System.out.println(Station.StationF.getNextStation());
-		// System.out.println(Station.StationF.getPreviousStation());
-		// System.out.println(Station.StationA.getNextStation());
-		// System.out.println(Station.StationA.getPreviousStation());
-		// System.out.println(Station.StationD.getNextStation());
-		// System.out.println(Station.StationD.getPreviousStation());
+		// Create trains
+		ArrayList<Train> trains = new ArrayList<Train>();
+		trains.add(new Train(Train.Direction.OUTBOUND, 3, Station.StationF));
+		trains.add(new Train(Train.Direction.INBOUND, 3, Station.StationA));
+
+		// Create the train route
+		new TrainRoute(trains);
 	}
 
-	public TrainRoute() {
+	public TrainRoute(ArrayList<Train> trains) {
 		// Update loop
 		boolean update = true;
-		int numberOfUpdates = 1;
+		int numberOfUpdates = 6;
 		while (update && numberOfUpdates > 0) {
+			System.out.println("-------------------------------------------");
 			// Update stations
 			for (Station station : Station.values()) {
 				station.getStation().update();
 			}
 
-			// Update train
+			// Update trains
+			for (Train train : trains) {
+				train.update();
+			}
+
+			// Loop limiter
 			numberOfUpdates--;
 		}
 
