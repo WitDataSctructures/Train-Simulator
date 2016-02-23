@@ -14,7 +14,7 @@ public class TrainRoute {
 	public TrainRoute() {
 		// Update loop
 		boolean update = true;
-		int numberOfUpdates = 10;
+		int numberOfUpdates = 1;
 		while (update && numberOfUpdates > 0) {
 			// Update stations
 			for (Station station : Station.values()) {
@@ -24,6 +24,7 @@ public class TrainRoute {
 			// Update train
 			numberOfUpdates--;
 		}
+
 	}
 
 	public enum Station {
@@ -39,7 +40,7 @@ public class TrainRoute {
 		private Station(int v, int distanceToNext) {
 			value = v;
 			distance = distanceToNext;
-			station = new TrainStation(this.name());
+			station = new TrainStation(this);
 		}
 
 		public int getValue() {
