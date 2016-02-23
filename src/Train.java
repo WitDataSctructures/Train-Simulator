@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Train {
 	public static enum Direction {
@@ -13,10 +14,13 @@ public class Train {
 	private Direction directionOfTravel;
 	private TrainRoute.Station nextStation;
 
-	public Train(Direction dir, int numOfCars) {
+	public Train(Direction dir, int numOfCars, TrainRoute.Station startingStation) {
 		directionOfTravel = dir;
 		carsInTrain = numOfCars;
 		capacity = PASS_PER_CAR * carsInTrain;
+
+		// Put train at random station
+		nextStation = startingStation;
 	}
 
 	public int getNumberOfCars() {
