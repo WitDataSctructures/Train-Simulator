@@ -37,9 +37,9 @@ public class TrainStation {
 			}
 			// Create the passenger
 			Train.Direction direction = getDirection(start, end);
-			Passenger passenger = new Passenger(end, direction);
+			Passenger passenger = new Passenger(end);
 			// Put the passenger in line for the correct train
-			if (passenger.getDirection().equals(Train.Direction.OUTBOUND)) {
+			if (direction.equals(Train.Direction.OUTBOUND)) {
 				// System.out.println(" Passenger going OUTBOUND to " +
 				// end.toString());
 				outboundQueue.enqueue(passenger);
