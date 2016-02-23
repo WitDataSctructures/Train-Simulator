@@ -6,7 +6,9 @@ public class TrainRoute {
 		// Create trains
 		ArrayList<Train> trains = new ArrayList<Train>();
 		trains.add(new Train(Train.Direction.OUTBOUND, 3, Station.StationF));
+		trains.add(new Train(Train.Direction.OUTBOUND, 4, Station.StationD));
 		trains.add(new Train(Train.Direction.INBOUND, 3, Station.StationA));
+		trains.add(new Train(Train.Direction.INBOUND, 4, Station.StationD));
 
 		// Create the train route
 		new TrainRoute(trains);
@@ -15,7 +17,7 @@ public class TrainRoute {
 	public TrainRoute(ArrayList<Train> trains) {
 		// Update loop
 		boolean update = true;
-		int numberOfUpdates = 6;
+		int numberOfUpdates = 20;
 		while (update && numberOfUpdates > 0) {
 			System.out.println("-------------------------------------------");
 			// Update stations
