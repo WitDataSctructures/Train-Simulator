@@ -17,7 +17,8 @@ public class TrainStation {
 	}
 
 	public void update() {
-		System.out.println("Generating Passenger for Station: " + stationEnum.toString());
+		// System.out.println("Generating Passenger for Station: " +
+		// stationEnum.toString());
 		generatePassengers();
 	}
 
@@ -39,10 +40,12 @@ public class TrainStation {
 			Passenger passenger = new Passenger(end, direction);
 			// Put the passenger in line for the correct train
 			if (passenger.getDirection().equals(Train.Direction.OUTBOUND)) {
-				System.out.println("    Passenger going OUTBOUND to " + end.toString());
+				// System.out.println(" Passenger going OUTBOUND to " +
+				// end.toString());
 				outboundQueue.enqueue(passenger);
 			} else {
-				System.out.println("    Passenger going INBOUND to " + end.toString());
+				// System.out.println(" Passenger going INBOUND to " +
+				// end.toString());
 				inboundQueue.enqueue(passenger);
 			}
 		}
