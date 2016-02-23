@@ -33,9 +33,15 @@ public class Train {
 	}
 
 	public void update() {
-		System.out.println("Train: " + directionOfTravel + "	Capacity=" + capacity);
+		System.out.println("Train: " + directionOfTravel + "  Cars = " + carsInTrain);
+		System.out.println("	Number of open seats: " + (capacity - passengers.size()));
 		System.out.println("	Number of passengers: " + passengers.size());
-		System.out.println("	Distance to " + nextStation + "=" + distanceToStation);
+		if(distanceToStation > 0){
+			System.out.println("	Distance to " + nextStation + " = " + distanceToStation);
+		}
+		else{
+			System.out.println("	Currently at Station: " + nextStation);
+		}
 		// If not at station keep moving
 		if (distanceToStation > 0) {
 			distanceToStation--;
