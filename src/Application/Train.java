@@ -1,5 +1,5 @@
+package Application;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Train {
 	public static enum Direction {
@@ -36,10 +36,9 @@ public class Train {
 		System.out.println("Train: " + directionOfTravel + "  Cars = " + carsInTrain);
 		System.out.println("	Number of open seats: " + (capacity - passengers.size()));
 		System.out.println("	Number of passengers: " + passengers.size());
-		if(distanceToStation > 0){
+		if (distanceToStation > 0) {
 			System.out.println("	Distance to " + nextStation + " = " + distanceToStation);
-		}
-		else{
+		} else {
 			System.out.println("	Currently at Station: " + nextStation);
 		}
 		// If not at station keep moving

@@ -1,3 +1,4 @@
+package ADT;
 
 public class Queue<T>{
 	private Node<T> firstNode = null;

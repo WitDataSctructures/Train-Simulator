@@ -1,3 +1,4 @@
+package Application;
 
 public class Passenger {
 	private TrainRoute.Station destination;

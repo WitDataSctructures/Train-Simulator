@@ -1,10 +1,12 @@
+package Application;
 import java.util.Random;
+
+import ADT.QueueOfPassengers;
 
 public class TrainStation {
 
 	private static final int PEOPLE_MAX = 10;
 
-	@SuppressWarnings("unused")
 	private TrainRoute.Station stationEnum;
 	private Random random;
 	public QueueOfPassengers inboundQueue, outboundQueue;
@@ -68,9 +70,5 @@ public class TrainStation {
 			return Train.Direction.INBOUND;
 		}
 		return Train.Direction.OUTBOUND;
-	}
-
-	private int getNumberOfStations() {
-		return TrainRoute.Station.values().length;
 	}
 }
