@@ -1,5 +1,18 @@
 package ADT;
 
+ /**
+ * Comp 2071
+ * Lab 03: Queues
+ * Due: February 23rd, 2016
+ * Group #: 15
+ *
+ * A node in a queue
+ * 
+ * @author Jake Mathews
+ * @author Ford Polia
+ * @author Darrien Kennedy
+ */
+
 public class Node<T> {
 	
 	private Node<T> nextNode;

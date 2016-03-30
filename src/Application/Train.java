@@ -1,6 +1,19 @@
 package Application;
 import java.util.ArrayList;
 
+ /**
+ * Comp 2071
+ * Lab 03: Queues
+ * Due: February 23rd, 2016
+ * Group #: 15
+ *
+ * A class to represnt a Train
+ * 
+ * @author Jake Mathews
+ * @author Ford Polia
+ * @author Darrien Kennedy
+ */
+
 public class Train {
 	public static enum Direction {
 		INBOUND, OUTBOUND
@@ -13,7 +26,13 @@ public class Train {
 	private ArrayList<Passenger> passengers = new ArrayList<Passenger>();
 	private Direction directionOfTravel;
 	private TrainRoute.Station nextStation;
-
+	
+	/**
+	 * Train Constructor
+	 * @param direction
+	 * @param numOfCars in the train
+	 * @param startingStation
+	 */
 	public Train(Direction dir, int numOfCars, TrainRoute.Station startingStation) {
 		directionOfTravel = dir;
 		carsInTrain = numOfCars;
@@ -22,16 +41,22 @@ public class Train {
 		// Put train at random station
 		nextStation = startingStation;
 	}
-
+	/**
+	 * @return number of cars in the train
+	 */
 	public int getNumberOfCars() {
 		return carsInTrain;
 	}
-
+	/**
+	 * Adds a car to the train
+	 */
 	public void addCar() {
 		carsInTrain++;
 		capacity = PASS_PER_CAR * carsInTrain;
 	}
-
+	/**
+	 * Moves the train, loads and unloads passengers
+	 */
 	public void update() {
 		System.out.println("Train: " + directionOfTravel + "  Cars = " + carsInTrain);
 		System.out.println("	Number of open seats: " + (capacity - passengers.size()));
@@ -76,7 +101,9 @@ public class Train {
 
 		}
 	}
-
+	/**
+	 * @return the direction of the train
+	 */
 	public Direction getDirection() {
 		return directionOfTravel;
 	}

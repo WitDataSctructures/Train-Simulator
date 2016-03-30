@@ -1,6 +1,20 @@
 package Application;
 import java.util.ArrayList;
 
+ /**
+ * Comp 2071
+ * Lab 03: Queues
+ * Due: February 23rd, 2016
+ * Group #: 15
+ *
+ * A class to represent a TrainRoute
+ * Also contains the main method for the application
+ * 
+ * @author Jake Mathews
+ * @author Ford Polia
+ * @author Darrien Kennedy
+ */
+
 public class TrainRoute {
 
 	public static void main(String[] args) {
@@ -14,7 +28,10 @@ public class TrainRoute {
 		// Create the train route
 		new TrainRoute(trains);
 	}
-
+	/**
+	 * Constructor for TrainRoute
+	 * @param trains
+	 */
 	public TrainRoute(ArrayList<Train> trains) {
 		// Update loop
 		boolean update = true;
@@ -36,7 +53,10 @@ public class TrainRoute {
 		}
 
 	}
-
+	/**
+	 * Enum for a stations position in the route
+	 * (stationValue, distanceToNextStation)
+	 */
 	public enum Station {
 		StationA(0, 1), StationB(1, 2), StationC(2, 3), StationD(3, 4), StationE(4, 3), StationF(5, 2);
 
@@ -47,28 +67,43 @@ public class TrainRoute {
 		private final int distance;
 		private final TrainStation station;
 
+		/**
+		 * Constructor for Station
+		 * @param station value
+		 * @param distanceToNextStation
+		 */
 		private Station(int v, int distanceToNext) {
 			value = v;
 			distance = distanceToNext;
 			station = new TrainStation(this);
 		}
-
+		/**
+		 * @return the station's value
+		 */
 		public int getValue() {
 			return value;
 		}
-
+		/**
+		 * @return distance to next station
+		 */
 		public int getDistanceToNext() {
 			return distance;
 		}
-
+		/**
+		 * @return distance to previous station
+		 */
 		public int getDistanceToPrevious() {
 			return getPreviousStation().getDistanceToNext();
 		}
-
+		/**
+		 * @return station object
+		 */
 		public TrainStation getStation() {
 			return station;
 		}
-
+		/**
+		 * @return the next station in the route
+		 */
 		public Station getNextStation() {
 			for (Station s : Station.values()) {
 				if (s.value == value + 1) {
@@ -77,7 +112,9 @@ public class TrainRoute {
 			}
 			return headStation;
 		}
-
+		/**
+		 * @return the previous station in the route
+		 */
 		public Station getPreviousStation() {
 			for (Station s : Station.values()) {
 				if (s.value == value - 1) {

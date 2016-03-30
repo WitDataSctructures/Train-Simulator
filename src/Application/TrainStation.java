@@ -3,6 +3,19 @@ import java.util.Random;
 
 import ADT.QueueOfPassengers;
 
+ /**
+ * Comp 2071
+ * Lab 03: Queues
+ * Due: February 23rd, 2016
+ * Group #: 15
+ *
+ * A class to represent a Train Station
+ * 
+ * @author Jake Mathews
+ * @author Ford Polia
+ * @author Darrien Kennedy
+ */
+
 public class TrainStation {
 
 	private static final int PEOPLE_MAX = 10;
@@ -10,20 +23,27 @@ public class TrainStation {
 	private TrainRoute.Station stationEnum;
 	private Random random;
 	public QueueOfPassengers inboundQueue, outboundQueue;
-
+	/**
+	 * Constructor for a TrainStation with the inbound and outbound queues
+	 * @param Enum Station from TrainRoute
+	 */
 	public TrainStation(TrainRoute.Station station) {
 		this.stationEnum = station;
 		random = new Random();
 		inboundQueue = new QueueOfPassengers();
 		outboundQueue = new QueueOfPassengers();
 	}
-
+	/**
+	 * runs generatePassengers
+	 */
 	public void update() {
 		// System.out.println("Generating Passenger for Station: " +
 		// stationEnum.toString());
 		generatePassengers();
 	}
-
+	/**
+	 * Generates new passengers and adds them to the queues
+	 */
 	private void generatePassengers() {
 		// Determine how many passengers to add to the platform
 		int newPassengers = random.nextInt(PEOPLE_MAX);
@@ -52,7 +72,11 @@ public class TrainStation {
 			}
 		}
 	}
-
+	/**
+	 * @param Station the train started at
+	 * @param Station the train ends at
+	 * @return the direction of the train
+	 */
 	private static Train.Direction getDirection(TrainRoute.Station start, TrainRoute.Station end) {
 		TrainRoute.Station s = start;
 		int distanceNext = 0;
